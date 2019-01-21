@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "829612493643",
+    "firebase_url": "https://spintoearncash-c9eac.firebaseio.com",
+    "project_id": "spintoearncash-c9eac",
+    "storage_bucket": "spintoearncash-c9eac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829612493643:android:9edac32ecd5656a1",
+        "android_client_info": {
+          "package_name": "com.spintoearncash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829612493643-66itrndqkui8nfl4d5ddg5unmhceb5da.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spintoearncash",
+            "certificate_hash": "55e2a3b0477d5e9b47db98833038f16b39781faa"
+          }
+        },
+        {
+          "client_id": "829612493643-r9fl6jo903itpekk69jn9rclpeva6koj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA40L8HypcWwTEMfMTiUlE9OCKxxjMZK5M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829612493643-r9fl6jo903itpekk69jn9rclpeva6koj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
