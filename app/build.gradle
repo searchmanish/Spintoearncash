@@ -33,6 +33,9 @@ dependencies {
 
     implementation 'com.google.android.gms:play-services-ads:17.1.1'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+
+    //startApp sdk for ads
+    implementation 'com.startapp:inapp-sdk:3.10.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

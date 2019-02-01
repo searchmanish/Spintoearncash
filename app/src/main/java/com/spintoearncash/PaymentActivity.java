@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.startapp.android.publish.adsCommon.StartAppAd;
+
 public class PaymentActivity extends AppCompatActivity {
     Toolbar toolbar;
     ImageView payment1, payment2, payment3;
@@ -85,6 +87,13 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    //ads by startapp
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 
 

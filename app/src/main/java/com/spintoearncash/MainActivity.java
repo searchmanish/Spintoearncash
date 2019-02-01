@@ -1,25 +1,22 @@
 package com.spintoearncash;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.startapp.android.publish.adsCommon.StartAppAd;
+import com.startapp.android.publish.adsCommon.StartAppSDK;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +27,6 @@ import java.util.Random;
 
 import rubikstudio.library.LuckyWheelView;
 import rubikstudio.library.model.LuckyItem;
-import rubikstudio.library.PielView;
 
 public class MainActivity extends AppCompatActivity {
     List<LuckyItem> data = new ArrayList<>();
@@ -44,12 +40,23 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences pref;
     int counter;
 
+    //startapp inter...
+    private StartAppAd startAppAd;
+
 
     SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+         //startapp ads
+        StartAppSDK.init(this, "200833362", true);
+         startAppAd = new StartAppAd(this);
+
+        StartAppSDK.setUserConsent (this,
+                "pas",
+                System.currentTimeMillis(),
+                false);
 
         setContentView(R.layout.activity_main);
 
@@ -58,14 +65,14 @@ public class MainActivity extends AppCompatActivity {
         totalChance = findViewById(R.id.totalChance);
         play = findViewById(R.id.play);
 
-        //Advertisment
+       /* //Advertisment
         MobileAds.initialize(this, "ca-app-pub-3642751437734166~2812470254");
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-
-        mInterstitialAd = new InterstitialAd(this);
+*/
+     /*   mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdUnitId("ca-app-pub-3642751437734166/7077102601");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         //reload add
@@ -77,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
+*/
 
         //
 
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
                 whatsappIntent.setType("text/plain");
                 whatsappIntent.setPackage("com.whatsapp");
-                whatsappIntent.putExtra(Intent.EXTRA_TEXT, "दोस्तों online पैसे कमाने का एक नया तरीका आया है। मैंने अभी 6035 रुपए कमाऐ हैं। \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 इसमें आपको कुछ देर के लिए एक गेम खेलना है। \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 आपको एक पहिया दिखाई देगा, जिस पर कुछ रकम लिखी हुई होगी, जिसे आपको प्ले बटन पर क्लिक करके घुमाना है। और जिस रकम पर पहिया रुकेगा वह राशि आपके बैलेंस में ऐड कर दी जाएगी । और फिर आप उन पैसो को ट्रांसफर कर सकते है। \uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1 आप भी ये गेम खेल कर कमा सकते है हजारों रुपए हर रोज । https://play.google.com/store/apps/details?id=com.spintoearncash");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, "दोस्तों online पैसे कमाने का एक नया तरीका आया है। मैंने अभी 6035 रुपए कमाऐ हैं। \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 इसमें आपको कुछ देर के लिए एक गेम खेलना है। \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 आपको एक पहिया दिखाई देगा, जिस पर कुछ रकम लिखी हुई होगी, जिसे आपको प्ले बटन पर क्लिक करके घुमाना है। और जिस रकम पर पहिया रुकेगा वह राशि आपके बैलेंस में ऐड कर दी जाएगी । और फिर आप उन पैसो को ट्रांसफर कर सकते है। \uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1\uD83D\uDCF1 आप भी ये गेम खेल कर कमा सकते है हजारों रुपए हर रोज । http://youthlive.in/spintoearn/spintoearn.apk");//
                 //
                 final SharedPreferences pref = getApplicationContext().getSharedPreferences("WHEEL", 0);
                 int shareamount = pref.getInt("amount", 0);
@@ -141,7 +148,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent paymentIntent = new Intent(MainActivity.this, PaymentActivity.class);
                 startActivity(paymentIntent);
-                loadInterAd();
+                //satrt app ad
+                StartAppAd.showAd(MainActivity.this);
+               // loadInterAd();
 
 
             }
@@ -240,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("myPref", 0);
 
                 counter = sharedPreferences.getInt("count", 0);
-                if (counter < 10) {
+                if (counter < 15) {
 
 
                     int index = getRandomIndex();
@@ -330,7 +339,9 @@ public class MainActivity extends AppCompatActivity {
 
                     balance.setText(String.valueOf("Bal ₹" + total));
 
-                    loadInterAd();
+                    //startApp
+                    startAppAd.showAd(); // show the ad
+                   // loadInterAd();
                 }
 
 
@@ -340,14 +351,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void loadInterAd() {
+   /* private void loadInterAd() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
         }
     }
-
+*/
     private int getRandomIndex() {
         Random rand = new Random();
         return rand.nextInt(data.size() - 1) + 0;
@@ -356,5 +367,13 @@ public class MainActivity extends AppCompatActivity {
     private int getRandomRound() {
         Random rand = new Random();
         return rand.nextInt(10) + 15;
+    }
+
+
+    //ads by startapp
+    @Override
+    public void onBackPressed() {
+        StartAppAd.onBackPressed(this);
+        super.onBackPressed();
     }
 }
