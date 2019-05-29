@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     SharedPreferences pref;
     int counter;
-    //sachin
+    //sachin manish
     //startapp inter...
     private StartAppAd startAppAd;
 
