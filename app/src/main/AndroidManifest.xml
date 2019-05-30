@@ -5,6 +5,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission-sdk-23 android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_SMS" />
+    <uses-permission-sdk-23 android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="false"
         android:fullBackupContent="false"
@@ -16,10 +25,10 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         tools:replace="allowBackup,supportsRtl">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+        <activity android:name=".PaymentSucess"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".PaymentActivity"
             android:theme="@style/AppTheme1">
@@ -27,9 +36,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <activity android:name=".SplashActivity"
-            android:theme="@style/AppTheme1"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,13 +47,12 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3642751437734166~2812470254"/>
+            android:value="ca-app-pub-3642751437734166~2812470254" />
 
         <receiver
-            android:name="com.spintoearncash.receive"
+            android:name=".receive"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -53,12 +62,13 @@
         </receiver>
 
         <service
-            android:name="com.spintoearncash.NotifyService"
+            android:name=".NotifyService"
             android:enabled="true"
             android:exported="true" />
 
-
+        <meta-data
+            android:name="instamojo.orderauth.url"
+            android:value="http://youthlive.in/spintoearncash/access_token.php" />
     </application>
-
 
 </manifest>
